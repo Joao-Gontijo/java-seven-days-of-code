@@ -6,6 +6,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,7 +18,6 @@ public class BuscaFilmes {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Constantes apiKey = new Constantes();
 		URI uri = URI.create("https://imdb-api.com/en/API/Top250Movies/" + apiKey.getApiKey());
-//		URI uri = URI.create("https://pokeapi.co/api/v2/pokemon/ditto");
 		
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder(uri).build();
@@ -27,10 +28,14 @@ public class BuscaFilmes {
 		JSONObject obj = new JSONObject(filmes);
 		JSONArray arr = obj.getJSONArray("items");
 		
+		String[] titulos = new String[arr.length()];
+		String[] links = new String[arr.length()];
+		
 		for(int i = 0; i < arr.length(); i++) {
-			String post_id = arr.getJSONObject(i).getString("title");
-			System.out.println(i+1 + ": " +post_id);
+			titulos[i] = arr.getJSONObject(i).getString("title");
+			links[i] = arr.getJSONObject(i).getString("image");
+			System.out.println(titulos[i]);
+			System.out.println(links[i]);
 		}
-	
 	}
 }
