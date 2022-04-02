@@ -6,4 +6,6 @@ Desafio proposto por Paulo Silveira para exercitar os conhecimentos de Java, con
 
 - Dia 1:  
 	- Criar o projeto  
-	- Consumir os 250 top filmes e printar no console.  
+	- Consumir os 250 top filmes e printar no console. 
+- Dia 2:
+	- Buscar e parsear os nomes dos filmes e a url da imagem correspondente de cada um.

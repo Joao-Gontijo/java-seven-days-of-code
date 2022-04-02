@@ -6,8 +6,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -34,8 +32,8 @@ public class BuscaFilmes {
 		for(int i = 0; i < arr.length(); i++) {
 			titulos[i] = arr.getJSONObject(i).getString("title");
 			links[i] = arr.getJSONObject(i).getString("image");
-			System.out.println(titulos[i]);
-			System.out.println(links[i]);
+			System.out.println("Titulo: " + titulos[i]);
+			System.out.println("URL: " + links[i]);
 		}
 	}
 }
