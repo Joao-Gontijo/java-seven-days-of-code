@@ -19,10 +19,9 @@ public class HTMLGenerator {
 				</head>
 				""";
 		String titulo = "<div><h1>Top 250 Filmes</h1></div>";
-		
 		writer.write(head);
 		writer.write(titulo);
-		
+	
 		for (Iterator<Filme> iterator = lista.iterator(); iterator.hasNext();) {
 			Filme filme = (Filme) iterator.next();
 			String card = "<div class=\"card\" style=\"width: 14rem;\">\r\n"

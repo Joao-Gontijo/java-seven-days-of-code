@@ -51,5 +51,6 @@ public class BuscaFilmes {
 		geradorHtml.generate(listaFilmes, writer);
 		writer.close();
 		
+		System.out.println("Finalizado");
 	}
 }

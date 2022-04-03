@@ -10,5 +10,7 @@ Desafio proposto por Paulo Silveira para exercitar os conhecimentos de Java, con
 - Dia 2:
 	- Buscar e parsear os nomes dos filmes e a url da imagem correspondente de cada um. 
 - Dia 3:  
-	- Modelar um filme.
+	- Modelar um filme.  
+- Dia 4:
+	- Criar uma classe para gerar o HTML que mostrará a lista de filmes.
 	
