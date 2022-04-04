@@ -12,5 +12,7 @@ Desafio proposto por Paulo Silveira para exercitar os conhecimentos de Java, con
 - Dia 3:  
 	- Modelar um filme.  
 - Dia 4:
-	- Criar uma classe para gerar o HTML que mostrará a lista de filmes.
+	- Criar uma classe para gerar o HTML que mostrará a lista de filmes.  
+- Dia 5:  
+	- Refatorar o parseamento do Json e a chamada HTTP para novas classes.
 	
