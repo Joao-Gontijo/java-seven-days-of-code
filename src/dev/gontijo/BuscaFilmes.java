@@ -22,22 +22,9 @@ public class BuscaFilmes {
 		Constantes constant = new Constantes();
 		String apiKey = constant.getApiKey();
 		
-		List<Filme> listaFilmes = new ArrayList<Filme>();
+		String json = new ImdbApiClient(apiKey).getBody();
 		
-		String filmes = new ImdbApiClient(apiKey).getBody();
-		
-		JSONObject obj = new JSONObject(filmes);
-		JSONArray arr = obj.getJSONArray("items");
-		
-		for(int i = 0; i < arr.length(); i++) {
-			Filme filme = new Filme(
-					arr.getJSONObject(i).getString("title"),
-					arr.getJSONObject(i).getString("image"),
-					Double.parseDouble(arr.getJSONObject(i).getString("imDbRating")),
-					Integer.parseInt(arr.getJSONObject(i).getString("year"))
-				);
-			listaFilmes.add(filme);
-		}
+		List<Filme> listaFilmes = new ImdbMovieJsonParser(json).parse();
 		
 		File f = new File("html//source.html");
 		PrintWriter writer = new PrintWriter(f);
