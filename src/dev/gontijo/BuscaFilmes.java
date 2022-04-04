@@ -19,17 +19,12 @@ import dev.gontijo.model.Filme;
 
 public class BuscaFilmes {
 	public static void main(String[] args) throws IOException, InterruptedException {
-		Constantes apiKey = new Constantes();
+		Constantes constant = new Constantes();
+		String apiKey = constant.getApiKey();
 		
 		List<Filme> listaFilmes = new ArrayList<Filme>();
 		
-		URI uri = URI.create("https://imdb-api.com/en/API/Top250Movies/" + apiKey.getApiKey());
-		
-		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder(uri).build();
-		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-		
-		String filmes = response.body();
+		String filmes = new ImdbApiClient(apiKey).getBody();
 		
 		JSONObject obj = new JSONObject(filmes);
 		JSONArray arr = obj.getJSONArray("items");
@@ -47,8 +42,8 @@ public class BuscaFilmes {
 		File f = new File("html//source.html");
 		PrintWriter writer = new PrintWriter(f);
 		
-		HTMLGenerator geradorHtml = new HTMLGenerator();
-		geradorHtml.generate(listaFilmes, writer);
+		new HTMLGenerator(writer).generate(listaFilmes);
+		
 		writer.close();
 		
 		System.out.println("Finalizado");

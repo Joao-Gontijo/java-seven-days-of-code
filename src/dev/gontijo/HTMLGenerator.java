@@ -8,7 +8,13 @@ import dev.gontijo.model.Filme;
 
 public class HTMLGenerator {
 	
-	public void generate(List<Filme> lista, PrintWriter writer) {
+	private PrintWriter writer;
+	
+	public HTMLGenerator(PrintWriter writer) {
+		this.writer = writer;
+	}
+	
+	public void generate(List<Filme> lista) {
 		String head =
 				"""
 				<head>
@@ -19,8 +25,8 @@ public class HTMLGenerator {
 				</head>
 				""";
 		String titulo = "<div><h1>Top 250 Filmes</h1></div>";
-		writer.write(head);
-		writer.write(titulo);
+		this.writer.write(head);
+		this.writer.write(titulo);
 	
 		for (Iterator<Filme> iterator = lista.iterator(); iterator.hasNext();) {
 			Filme filme = (Filme) iterator.next();
@@ -31,7 +37,7 @@ public class HTMLGenerator {
 					+ "    <p class=\"card-text\"> Nota: " + filme.getNota() + "- Ano: " + filme.getAno() + "</p>\r\n"
 					+ "  </div>\r\n"
 					+ "</div>";
-			writer.write(card);
+			this.writer.write(card);
 		}	
 	}
 }
