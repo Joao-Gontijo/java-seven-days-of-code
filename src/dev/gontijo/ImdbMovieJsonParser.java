@@ -6,9 +6,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import dev.gontijo.interfaces.JsonParser;
 import dev.gontijo.model.Filme;
 
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser {
 	
 	private String json;
 	

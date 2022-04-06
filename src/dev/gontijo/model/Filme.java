@@ -1,6 +1,8 @@
 package dev.gontijo.model;
 
-public class Filme {
+import dev.gontijo.interfaces.Content;
+
+public class Filme implements Content {
 	
 	private String titulo;
 	private String urlImagem;
@@ -27,6 +29,26 @@ public class Filme {
 	}
 
 	public int getAno() {
+		return ano;
+	}
+
+	@Override
+	public String title() {
+		return titulo;
+	}
+
+	@Override
+	public String urlImage() {
+		return urlImagem;
+	}
+
+	@Override
+	public double rating() {
+		return nota;
+	}
+
+	@Override
+	public int year() {
 		return ano;
 	}
 
